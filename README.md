@@ -1,3 +1,5 @@
-# Portfolio Template
+# Portfolio
 
-This is a simple template to help you build a portfolio website. It's still a work in progress but uses shadcn-ui for the UI.
+## Description
+
+This is a portfolio of my work. It includes a brief bio, a list of projects I have worked on, and a contact form.
