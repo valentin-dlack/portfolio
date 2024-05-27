@@ -23,8 +23,8 @@ const contactFormSchema = z.object({
   message: z.string().max(380).min(4)
 });
 
-const FROM_EMAIL = process.env.FROM_EMAIL;
-const TO_EMAIL = process.env.TO_EMAIL;
+const FROM_EMAIL = 'contact@example.com';
+const TO_EMAIL = 'personal@personal.com';
 
 export async function contactSubmit(prevState: any, formData: FormData) {
   try {
