@@ -1,10 +1,19 @@
 'use server';
-import { Resend } from 'resend';
+import { render } from '@react-email/components';
 import { ContactEmail } from '@/components/emails/contact-template';
+import nodemailer from 'nodemailer';
 
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: 'ssl0.ovh.net',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
 
 const contactFormSchema = z.object({
   name: z
@@ -23,8 +32,8 @@ const contactFormSchema = z.object({
   message: z.string().max(380).min(4)
 });
 
-const FROM_EMAIL = 'contact@example.com';
-const TO_EMAIL = 'personal@personal.com';
+const FROM_EMAIL = 'contact@vdautrement.fr';
+const TO_EMAIL = process.env.TO_EMAIL;
 
 export async function contactSubmit(prevState: any, formData: FormData) {
   try {
@@ -43,18 +52,21 @@ export async function contactSubmit(prevState: any, formData: FormData) {
 
     const { name, email, message } = validatedFields.data;
 
-    const { data: res, error } = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: TO_EMAIL,
-      subject: `Message from ${name} on Portfolio`,
-      react: ContactEmail({ name, email, message })
-    });
-
-    if (error) {
-      return {
-        message: 'Oops! Something went wrong. Please try again later.'
-      };
-    }
+    const info = await transporter.sendMail(
+      {
+        from: FROM_EMAIL,
+        to: TO_EMAIL,
+        subject: `Message from ${name} on Portfolio`,
+        html: render(ContactEmail({ name, email, message }))
+      },
+      (error) => {
+        if (error) {
+          return {
+            message: 'Oops! Something went wrong. Please try again later.'
+          };
+        }
+      }
+    );
 
     return {
       message: 'Thank you for reaching out! Your message has been sent.'

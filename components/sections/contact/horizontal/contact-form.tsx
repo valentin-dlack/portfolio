@@ -10,7 +10,7 @@ import { toast } from '@/components/ui/use-toast';
 import { contactSubmit } from '@/app/actions';
 
 import { useFormState } from 'react-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const initialState = {
   errors: {},
@@ -19,6 +19,9 @@ const initialState = {
 
 export default function ContactForm() {
   const [state, formAction] = useFormState(contactSubmit, initialState);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     if (state?.message === '') return;
@@ -26,6 +29,10 @@ export default function ContactForm() {
     toast({
       title: state?.message
     });
+    //clear fields
+    setName('');
+    setEmail('');
+    setMessage('');
   }, [state]);
 
   return (
@@ -40,7 +47,14 @@ export default function ContactForm() {
         >
           Name
         </Label>
-        <Input id="name" name="name" placeholder="Jane Doe" required />
+        <Input
+          id="name"
+          name="name"
+          placeholder="Jane Doe"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
         <p className="text-sm font-medium text-red-500 dark:text-red-900">
           {state?.errors?.name}
         </p>
@@ -61,6 +75,8 @@ export default function ContactForm() {
           placeholder="jane@example.com"
           required
           type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <p className="text-sm font-medium text-red-500 dark:text-red-900">
           {state?.errors?.email}
@@ -82,6 +98,8 @@ export default function ContactForm() {
           placeholder={
             'Hello!\n\nThis is Jane Doe, from Example. Just wanted to say hi!'
           }
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           required
         />
         <p className="text-sm font-medium text-red-500 dark:text-red-900">
