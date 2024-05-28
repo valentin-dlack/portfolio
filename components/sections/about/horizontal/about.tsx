@@ -33,6 +33,10 @@ function About() {
           hiking, photography and video games.
           <br />
           <span className="text-cyan-800">I use Arch btw :)</span>
+          <br />
+          <span className="text-green-800">
+            <a href="/#contact">Contact me</a>
+          </span>
         </p>
         {/* Download resume button */}
         <div className="mt-8 flex justify-center">

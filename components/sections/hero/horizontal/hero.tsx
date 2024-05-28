@@ -14,7 +14,13 @@ function Hero() {
             {hero.label}
           </div>
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-            Hey ! Hello, I&apos;m {hero.name}
+            Hey ! Hello, I&apos;m{' '}
+            <a
+              href="/#about"
+              className="relative cursor-pointer text-white transition-all ease-in-out before:absolute before:bottom-0 before:left-[50%] before:h-[1px] before:w-0 before:origin-center before:bg-cyan-600 before:transition-[width] before:duration-700 before:ease-in-out after:absolute after:bottom-0 after:right-[50%] after:h-[1px] after:w-0 after:origin-center after:bg-cyan-600 after:transition-[width] after:duration-700 after:ease-in-out hover:text-white hover:before:w-[50%] hover:after:w-[50%]"
+            >
+              {hero.name}
+            </a>
           </h1>
           <p className="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             {hero.description}

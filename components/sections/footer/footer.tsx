@@ -15,6 +15,12 @@ function Footer() {
         >
           Github
         </Link>
+        <Link
+          className="text-xs underline-offset-4 hover:underline"
+          href="/blog"
+        >
+          Future Blog
+        </Link>
       </nav>
     </footer>
   );
