@@ -20,7 +20,7 @@ const projects: Project[] = [
   {
     name: 'NatHD / NatHD SI',
     description:
-      'NatHD (Nouvelle-Aquitaine Très Haut Débit) is a regional project to deploy fiber optics in the Nouvelle-Aquitaine region. I also on the backoffice of the project, NatHD SI.',
+      'NatHD (Nouvelle-Aquitaine Très Haut Débit) is a regional project to deploy fiber optics in the Nouvelle-Aquitaine region. I also worked on the backoffice of the project, NatHD SI.',
     thumbnail: '/images/projects/nathd/nathd-illu.png',
     links: [
       {

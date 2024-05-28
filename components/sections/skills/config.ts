@@ -9,7 +9,7 @@ const skills: Skill[] = [
     Icon: CodeIcon
   },
   {
-    name: 'Depolyment & Cloud Services',
+    name: 'Deployment & Cloud Services',
     description:
       'Deploying and managing applications on the cloud with AWS, GCP and else.',
     Icon: ServerIcon
@@ -17,7 +17,7 @@ const skills: Skill[] = [
   {
     name: 'Database Management',
     description:
-      'Storing and organizing data efficiently <ith SQL and NoSQL databases or Firebase.',
+      'Storing and organizing data efficiently with SQL and NoSQL databases or Firebase.',
     Icon: DatabaseIcon
   },
   {

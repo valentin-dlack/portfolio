@@ -8,7 +8,8 @@ const metadata: Metadata = {
   },
   site: {
     title: 'Valentin Dautrement | Portfolio',
-    description: 'My superduper portfolio',
+    description:
+      'This is the portfolio of Valentin Dautrement, a web developer student at ynov bordeaux. Check out my projects and contact me if you want to work with me.',
     ogImage: '/images/og.png',
     url: 'https://www.vdautrement.fr',
     keywords: [
