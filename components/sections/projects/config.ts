@@ -2,18 +2,14 @@ import { Project } from '@/types/project';
 
 const projects: Project[] = [
   {
-    name: 'R6dle',
+    name: 'PlayPal',
     description:
-      'R6dle is a website like Wordle but for Rainbow Six Siege operators. The goal is to find the operator with the least amount of tries.',
-    thumbnail: '/images/projects/r6dle/rainbowsix-illu.jpg',
+      'PlayPal is a SaaS platform aimed at helping Board Game/Tabletop Game Café owners manage their games library and loaning system.',
+    thumbnail: '/images/projects/playpal/playpal_illu.png',
     links: [
       {
         type: 'github',
-        url: 'https://github.com/valentin-dlack/r6dle'
-      },
-      {
-        type: 'live',
-        url: 'https://r6dle.com/'
+        url: 'https://github.com/Maximauve/PlayPal'
       }
     ]
   },
